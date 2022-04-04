@@ -66,11 +66,8 @@ NS_ASSUME_NONNULL_END
 
 - (instancetype)initWithUploadDirectory:(NSString*)path {
   if ((self = [super init])) {
-#if SWIFT_PACKAGE
-    NSBundle* bundle = SWIFTPM_MODULE_BUNDLE;
-#else
+
     NSBundle* bundle = [NSBundle bundleForClass:[GCDWebUploader class]];
-#endif
 
     NSString* bundlePath = [bundle pathForResource:@"GCDWebUploader" ofType:@"bundle"];
     if (bundlePath == nil) {
